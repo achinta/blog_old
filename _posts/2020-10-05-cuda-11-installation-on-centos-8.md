@@ -1,7 +1,5 @@
 Here I will describe the steps I followed to install cuda 11.1 on a fresh Centos 8 server. This involves three steps. 
 
-
-
 ### 1. Installing Nvidia driver
 . 
 ```shell

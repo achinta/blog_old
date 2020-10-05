@@ -2,11 +2,11 @@
   
     
         "post0": {
-            "title": "Aws Cli Cheatsheet",
-            "content": "This is just a test .",
-            "url": "https://achinta.github.io/blog/2020/10/04/aws-cli-cheatsheet.html",
-            "relUrl": "/2020/10/04/aws-cli-cheatsheet.html",
-            "date": " • Oct 4, 2020"
+            "title": "Cuda 11 Install On Centos8",
+            "content": "Here I will describe the steps I followed to install cuda 11.1 on a fresh Centos 8 server. This involves three steps. . 1. Installing Nvidia driver . . . # Install development tools which include gcc and make sudo dnf group install &quot;Development Tools&quot; sudo yum install elfutils-libelf-devel # install libelf yum install elfutils-libelf-devel # install dkms sudo yum install epel-release -y sudo yum install dkms -y # install the driver sudo bash NVIDIA-Linux-x86_64-450.80.02.run . 2. Install cuda . Download cuda from https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=CentOS&amp;target_version=8&amp;target_type=rpmlocal Follow the commands given on the page. For me, it was . wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda-repo-rhel8-11-1-local-11.1.0_455.23.05-1.x86_64.rpm sudo rpm -i cuda-repo-rhel8-11-1-local-11.1.0_455.23.05-1.x86_64.rpm sudo dnf clean all sudo dnf -y module install nvidia-driver:latest-dkms sudo dnf -y install cuda # verify the cuda version nvidia-smi . 3. Install cudnn . To download cudnn, we need to login to nvidia website, which is not possible on the server. So I did it locally and copied the files to server. . sudo rpm -ivh libcudnn8-8.0.4.30-1.cuda11.1.x86_64.rpm sudo rpm -ivh libcudnn8-devel-8.0.4.30-1.cuda11.1.x86_64.rpm .",
+            "url": "https://achinta.github.io/blog/2020/10/05/cuda-11-install-on-centos8.html",
+            "relUrl": "/2020/10/05/cuda-11-install-on-centos8.html",
+            "date": " • Oct 5, 2020"
         }
         
     
@@ -18,17 +18,6 @@
             "url": "https://achinta.github.io/blog/jupyter/2020/02/20/test.html",
             "relUrl": "/jupyter/2020/02/20/test.html",
             "date": " • Feb 20, 2020"
-        }
-        
-    
-  
-    
-        ,"post2": {
-            "title": "An Example Markdown Post",
-            "content": "Example Markdown Post . Basic setup . Jekyll requires blog post files to be named according to the following format: . YEAR-MONTH-DAY-filename.md . Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and filename is whatever file name you choose, to remind yourself what this post is about. .md is the file extension for markdown files. . The first line of the file should start with a single hash character, then a space, then your title. This is how you create a “level 1 heading” in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line ## File names above. . Basic formatting . You can use italics, bold, code font text, and create links. Here’s a footnote 1. Here’s a horizontal rule: . . Lists . Here’s a list: . item 1 | item 2 | . And a numbered list: . item 1 | item 2 | Boxes and stuff . This is a quotation . . You can include alert boxes …and… . . You can include info boxes Images . . Code . You can format text and code per usual . General preformatted text: . # Do a thing do_thing() . Python code and output: . # Prints &#39;2&#39; print(1+1) . 2 . Formatting text as shell commands: . echo &quot;hello world&quot; ./some_script.sh --option &quot;value&quot; wget https://example.com/cat_photo1.png . Formatting text as YAML: . key: value - another_key: &quot;another value&quot; . Tables . Column 1 Column 2 . A thing | Another thing | . Tweetcards . Altair 4.0 is released! https://t.co/PCyrIOTcvvTry it with: pip install -U altairThe full list of changes is at https://t.co/roXmzcsT58 ...read on for some highlights. pic.twitter.com/vWJ0ZveKbZ . &mdash; Jake VanderPlas (@jakevdp) December 11, 2019 Footnotes . This is the footnote. &#8617; . |",
-            "url": "https://achinta.github.io/blog/markdown/2020/01/14/test-markdown-post.html",
-            "relUrl": "/markdown/2020/01/14/test-markdown-post.html",
-            "date": " • Jan 14, 2020"
         }
         
     

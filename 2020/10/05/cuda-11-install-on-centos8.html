@@ -1,0 +1,37 @@
+<p>Here I will describe the steps I followed to install cuda 11.1 on a fresh Centos 8 server. This involves three steps.</p>
+
+<h3 id="1-installing-nvidia-driver">1. Installing Nvidia driver</h3>
+<p>.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install development tools which include gcc and make</span>
+<span class="nb">sudo </span>dnf group <span class="nb">install</span> <span class="s2">"Development Tools"</span>
+<span class="nb">sudo </span>yum <span class="nb">install </span>elfutils-libelf-devel
+
+<span class="c"># install libelf</span>
+yum <span class="nb">install </span>elfutils-libelf-devel
+
+<span class="c"># install dkms</span>
+<span class="nb">sudo </span>yum <span class="nb">install </span>epel-release <span class="nt">-y</span>
+<span class="nb">sudo </span>yum <span class="nb">install </span>dkms <span class="nt">-y</span>
+
+<span class="c"># install the driver</span>
+<span class="nb">sudo </span>bash NVIDIA-Linux-x86_64-450.80.02.run
+</code></pre></div></div>
+<h3 id="2-install-cuda">2. Install cuda</h3>
+<p>Download cuda from https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=CentOS&amp;target_version=8&amp;target_type=rpmlocal
+Follow the commands given on the page. 
+For me, it was</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda-repo-rhel8-11-1-local-11.1.0_455.23.05-1.x86_64.rpm
+<span class="nb">sudo </span>rpm <span class="nt">-i</span> cuda-repo-rhel8-11-1-local-11.1.0_455.23.05-1.x86_64.rpm
+<span class="nb">sudo </span>dnf clean all
+<span class="nb">sudo </span>dnf <span class="nt">-y</span> module <span class="nb">install </span>nvidia-driver:latest-dkms
+<span class="nb">sudo </span>dnf <span class="nt">-y</span> <span class="nb">install </span>cuda
+
+<span class="c"># verify the cuda version</span>
+nvidia-smi
+</code></pre></div></div>
+
+<h3 id="3-install-cudnn">3. Install cudnn</h3>
+<p>To download cudnn, we need to login to nvidia website, which is not possible on the server. So I did it locally and copied the files to server.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>rpm <span class="nt">-ivh</span> libcudnn8-8.0.4.30-1.cuda11.1.x86_64.rpm
+<span class="nb">sudo </span>rpm <span class="nt">-ivh</span> libcudnn8-devel-8.0.4.30-1.cuda11.1.x86_64.rpm
+</code></pre></div></div>
